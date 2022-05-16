@@ -95,7 +95,7 @@ Rails.application.configure do
 
   # config.action_mailer.delivery_method = :sendmail
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = YAML.load(IO.read(Rails.root/"config/smtp_settings.yml")).symbolize_keys
+  #config.action_mailer.smtp_settings = YAML.load(IO.read(Rails.root/"config/smtp_settings.yml")).symbolize_keys
 
   config.action_mailer.default_url_options ||= {}
   config.action_mailer.default_url_options[:protocol] = 'https'

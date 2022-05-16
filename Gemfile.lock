@@ -1,11 +1,4 @@
 GIT
-  remote: git@code.jkraemer.net:jk/capistrano-cloud-stuff
-  revision: afe32a16ed0b537ce0bcceb00a345c90248dd45a
-  specs:
-    capistrano-cloud-stuff (0.1.0)
-      capistrano (>= 3.1)
-
-GIT
   remote: https://github.com/electricthings/decidim
   revision: 6ae5ce8a840532fc4434e9f493284af8145e512a
   branch: 6ae5ce8a8
@@ -717,7 +710,6 @@ DEPENDENCIES
   byebug
   capistrano (~> 3.10.0)
   capistrano-chruby
-  capistrano-cloud-stuff!
   capistrano-rails
   connection_pool
   country_select (~> 3.1)

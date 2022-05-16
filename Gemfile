@@ -55,7 +55,7 @@ group :development do
   gem 'capistrano', '~> 3.10.0'
   gem 'capistrano-rails', require: false
   gem 'capistrano-chruby', require: false
-  gem 'capistrano-cloud-stuff', require: false, git: 'git@code.jkraemer.net:jk/capistrano-cloud-stuff'
+#  gem 'capistrano-cloud-stuff', require: false, git: 'git@code.jkraemer.net:jk/capistrano-cloud-stuff'
 
   gem 'rbnacl', '< 5.0', '>= 3.2.0'
   gem 'rbnacl-libsodium'

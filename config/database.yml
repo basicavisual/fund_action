@@ -61,4 +61,6 @@ development:
 test:
   <<: *default
   database: fund_action_test
-
+production:
+  <<: *default
+  database: fund_action_production
