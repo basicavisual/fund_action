@@ -22,3 +22,6 @@
 public/uploads
 
 config/smtp_settings.yml
+
+# Ignore application configuration
+/config/application.yml

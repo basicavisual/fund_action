@@ -30,6 +30,8 @@ gem "sanitize", ">= 5.2.1"
 
 gem 'kaminari', '~> 1.2.1'
 
+gem 'figaro'
+
 # GHSA-g6wq-qcwm-j5g2
 gem "websocket-extensions", ">= 0.1.5"
 
@@ -42,7 +44,7 @@ end
 
 gem 'puma', '~> 4.3', '>= 4.3.8'
 
-
+gem "decidim-decidim_awesome"
 #  CVE-2021-32740
 gem "addressable", ">= 2.8.0"
 
@@ -70,6 +72,4 @@ group :production do
   gem 'delayed_job_active_record'
   gem 'daemons'
   gem 'dalli'
-  gem 'airbrake', "~> 7.3"
 end
-
