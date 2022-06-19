@@ -17,6 +17,7 @@ gem 'rack-attack'
 gem 'country_select', "~> 3.1", require: 'country_select_without_sort_alphabetical'
 gem 'language_list'
 gem 'therubyracer'
+gem 'execjs'
 
 gem 'sprockets', '< 4.0'
 
@@ -65,6 +66,7 @@ group :development do
 end
 
 group :production do
+  gem 'passenger'
   gem 'puma-plugin-systemd'
   gem 'puma_worker_killer'
   gem 'connection_pool'
