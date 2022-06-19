@@ -1,11 +1,10 @@
 source "https://rubygems.org"
-
+DECIDIM_VERSION = "0.23.6"
 ruby '~> 2.6.6'
-gem "rails", ">= 5.2.6.3", "< 6.0"
-
+gem "rails"
 #gem "decidim", path: '../decidim'
-gem "decidim", git: 'https://github.com/electricthings/decidim', branch: '6ae5ce8a8'
-gem "decidim-calendar", git: "https://github.com/electricthings/decidim-module-calendar", branch: "master"
+gem "decidim", DECIDIM_VERSION
+gem "decidim-calendar", git: 'https://github.com/alabs/decidim-module-calendar'
 gem "decidim-consultations"
 
 #gem "decidim-members", path: '../decidim-members'
