@@ -22,8 +22,9 @@ gem 'execjs'
 gem 'sprockets', '< 4.0'
 
 gem 'rack', '>= 2.0.8'
-
-gem 'nokogiri', ">= 1.11.4"
+# Remove this nokogiri forces version at any time but make sure that no __truncato_root__ text appears in the cards in general.
+# More exactly in comments in the homepage and in processes cards in the processes listing
+gem 'nokogiri', "1.13.4"
 
 # GHSA-p4x4-rw2p-8j8m
 gem "sanitize", ">= 5.2.1"
