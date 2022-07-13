@@ -47,7 +47,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   instance_name = ENV.fetch('INSTANCE_NAME'){ "fundaction" }
 
@@ -57,7 +57,12 @@ Rails.application.configure do
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
-  config.logger = Syslog::Logger.new("rails_#{instance_name}", Syslog::LOG_LOCAL6)
+  #config.logger = Syslog::Logger.new("rails_#{instance_name}", Syslog::LOG_LOCAL6)
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  end
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]

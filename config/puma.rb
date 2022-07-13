@@ -14,7 +14,15 @@ port        ENV.fetch("PORT") { 3000 }
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
+# If you didn't place the cert and key under `local-certs` you should change this
+#localhost_key = "#{File.join('config', 'local-certs', 'localhost-key.pem')}"
+#localhost_crt = "#{File.join('config', 'local-certs', 'localhost.pem')}"
 
+# ssl_bind '0.0.0.0', 3000, {
+#   key: localhost_key,
+#   cert: localhost_crt,
+#   verify_mode: 'none'
+# }
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
