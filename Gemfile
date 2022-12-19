@@ -18,7 +18,7 @@ gem 'country_select', "~> 3.1", require: 'country_select_without_sort_alphabetic
 gem 'language_list'
 gem 'therubyracer'
 gem 'execjs'
-
+gem 'graphql', '~> 1.12.13'
 gem 'sprockets', '< 4.0'
 
 gem 'rack', '>= 2.0.8'

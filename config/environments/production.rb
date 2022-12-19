@@ -78,9 +78,9 @@ Rails.application.configure do
   # deployments.
   revision = File.read(Rails.root/"REVISION").chomp rescue "63b178c"
 
-  memcached_servers = ENV.fetch('MEMCACHED_SERVERS'){ "10.0.1.5:11211" }.split
+  # memcached_servers = ENV.fetch('MEMCACHED_SERVERS'){ "10.0.1.5:11211" }.split
   concurrency       = ENV.fetch('NUM_THREADS'){ 5 }
-  config.cache_store = :mem_cache_store, *memcached_servers, { namespace: "#{instance_name}:#{revision}:default", pool_size: concurrency }
+  # config.cache_store = :mem_cache_store, *memcached_servers, { namespace: "#{instance_name}:#{revision}:default", pool_size: concurrency }
 
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
