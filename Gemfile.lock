@@ -391,7 +391,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.13.13)
+    graphql (1.12.24)
     hashdiff (1.0.1)
     hashie (5.0.0)
     htmlentities (4.3.4)
@@ -705,6 +705,7 @@ DEPENDENCIES
   execjs
   faker
   figaro
+  graphql (~> 1.12.13)
   kaminari (~> 1.2.1)
   language_list
   letter_opener_web (~> 1.3.0)
