@@ -1,7 +1,7 @@
 source "https://rubygems.org"
-DECIDIM_VERSION = "0.23.6"
-ruby '~> 2.6.6'
-gem "rails"
+DECIDIM_VERSION = "0.24.3"
+ruby RUBY_VERSION
+# gem "rails"
 #gem "decidim", path: '../decidim'
 gem "decidim", DECIDIM_VERSION
 gem "decidim-calendar", git: 'https://github.com/alabs/decidim-module-calendar'
@@ -10,7 +10,7 @@ gem "decidim-consultations"
 #gem "decidim-members", path: '../decidim-members'
 gem 'decidim-members', git: 'https://github.com/electricthings/decidim-members'
 
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 gem 'rack-attack'
 
@@ -24,7 +24,7 @@ gem 'sprockets', '< 4.0'
 gem 'rack', '>= 2.0.8'
 # Remove this nokogiri forces version at any time but make sure that no __truncato_root__ text appears in the cards in general.
 # More exactly in comments in the homepage and in processes cards in the processes listing
-gem 'nokogiri', "1.13.4"
+gem 'nokogiri' #, "1.13.4"
 
 # GHSA-p4x4-rw2p-8j8m
 gem "sanitize", ">= 5.2.1"
