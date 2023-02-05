@@ -1,4 +1,4 @@
-require 'syslog/logger'
+# require 'syslog/logger'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -58,12 +58,12 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
   #config.logger = Syslog::Logger.new("rails_#{instance_name}", Syslog::LOG_LOCAL6)
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-  end
-
+#  if ENV["RAILS_LOG_TO_STDOUT"].present?
+#    logger           = ActiveSupport::Logger.new(STDOUT)
+#    logger.formatter = config.log_formatter
+#    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+#  end
+config.log_formatter = ::Logger::Formatter.new
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
@@ -82,7 +82,7 @@ Rails.application.configure do
   concurrency       = ENV.fetch('NUM_THREADS'){ 5 }
   config.cache_store = :mem_cache_store, *memcached_servers, { namespace: "#{instance_name}:#{revision}:default", pool_size: concurrency }
 
-
+  #config.cache_store = :memory_store, { size: 64.megabytes }
   # Use a real queuing backend for Active Job (and separate queues per environment)
   config.active_job.queue_adapter     = :delayed_job
   config.action_mailer.perform_caching = false
