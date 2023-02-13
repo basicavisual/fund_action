@@ -13,14 +13,17 @@ module AccountFormPatch
         attribute :value_statement
         attribute :cultural_background
         attribute :public_email
-
+        attribute :working_groups
+        attribute :pronouns
+        attribute :p2p
         validates :value_statement, acceptance: true
+        validates :p2p, acceptance: true
       end
     end
   end
 
-  def values_accepted?
-    value_statement == '1'
+  def accepted?(field)
+    field == '1'
   end
 
   def map_model(user)
@@ -36,6 +39,9 @@ module AccountFormPatch
       self.value_statement = profile['value_statement']
       self.cultural_background = profile['cultural_background']
       self.public_email = profile['public_email']
+      self.working_groups = profile['working_groups']
+      self.pronouns = profile['pronouns']
+      self.p2p = profile['p2p']
     end
   end
 

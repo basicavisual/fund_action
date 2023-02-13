@@ -1,4 +1,4 @@
-<% if form.object.values_accepted? %>
+<% if form.object.accepted?(:value_statement) %>
   <%= form.hidden_field :value_statement %>
 <% else %>
   <p>
@@ -19,13 +19,27 @@
 </label>
 
 <%= form.select :languages, language_select_options(form.object.languages), {}, { multiple: true, data: { placeholder: t('.choose_languages') } } %>
+
 <%= form.select :areas_of_interest, area_of_interest_select_options(form.object.areas_of_interest), {}, { multiple: true, data: { placeholder: t('.choose_areas_of_interest') } } %>
 <%= form.text_field :other_area_of_interest, placeholder: t('.other_area_of_interest') %>
 
+<%= form.select :working_groups, working_groups_select_options(form.object.working_groups), {label: t('.working_groups_interest') + " <a href='#'> What are working groups? </a>"}, { multiple: true, data: { placeholder: "working_groups" } } %>
+
+<div class="field">
+  <%= form.label :pronouns, "Please select your applicable pronouns" %>
+  <%= form.collection_check_boxes :pronouns, {he: 'He', she: 'She', they: 'They'}, :first, :last, legend_title: "test label" %>
+</div>
+
 <%= form.editor :about_me, toolbar: :full, lines: 10 %>
 
-<%= form.text_area :can_contribute, rows: 5 %>
-<p class="help-text"><%= t(".can_contribute_hint") %></p>
 
 <%= form.text_area :cultural_background, rows: 5 %>
 <p class="help-text"><%= t(".cultural_background_hint") %></p>
+
+
+
+<% if form.object.accepted?(:p2p) %>
+  <%= form.hidden_field :p2p %>
+<% else %>
+    <%= form.check_box :p2p, label: t(".p2p") %>
+<% end %>

@@ -17,6 +17,9 @@ module UpdateAccountPatch
       value_statement: @form.value_statement,
       cultural_background: @form.cultural_background,
       public_email: @form.public_email,
+      working_groups: @form.working_groups.reject(&:blank?),
+      pronouns: @form.pronouns,
+      p2p: @form.p2p
     }
   end
 end

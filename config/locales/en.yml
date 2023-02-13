@@ -19,6 +19,8 @@ en:
         cultural_background_hint: Not necessarily equal to nationality. This will not be part of your public profile.
         gender_hint: Share a word or words that reflect your internal sense of your gender (e.g. woman, man, non-binary). This will not be part of your public profile.
         other_area_of_interest: Other (please specify)
+        working_groups_interest: <b>Select on which working group you are interested in:</b> <em>By selecting this, I agree to be contacted about joining these working groups.
+        p2p: By filling your profile as a member, you acknowledge that you may be selected to participate in a P2P panel in a community process.
 
     authorization_handlers:
       anybody_authorization_handler:

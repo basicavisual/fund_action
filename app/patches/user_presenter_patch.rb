@@ -31,6 +31,13 @@ module UserPresenterPatch
     profile_attr('other_area_of_interest').presence
   end
 
+  def working_groups
+    if working = profile_attr('working_groups')
+      working_groups = working.map{ |name| WorkingGroup.for(name) }.compact
+      working
+    end
+  end
+
   def country
     if country_code = profile_attr('country') and
        country = ISO3166::Country[country_code]
@@ -54,6 +61,8 @@ module UserPresenterPatch
   def cultural_background
     profile_attr 'cultural_background'
   end
+
+
 
   private
 

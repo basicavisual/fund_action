@@ -16,4 +16,10 @@ module ApplicationHelper
     )
   end
 
+  def working_groups_select_options(selected_working_groups = [])
+    options_from_collection_for_select(
+      WorkingGroup.to_a, :first, :last, selected_working_groups
+    )
+  end
+
 end
