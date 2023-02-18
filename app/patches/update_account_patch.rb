@@ -19,7 +19,10 @@ module UpdateAccountPatch
       public_email: @form.public_email,
       working_groups: @form.working_groups.reject(&:blank?),
       pronouns: @form.pronouns,
-      p2p: @form.p2p
+      p2p: @form.p2p,
+      induction: @form.induction,
+      funder: @form.funder,
+      birthdate: @form.birthdate
     }
   end
 end

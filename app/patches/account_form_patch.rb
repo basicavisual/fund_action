@@ -16,6 +16,9 @@ module AccountFormPatch
         attribute :working_groups
         attribute :pronouns
         attribute :p2p
+        attribute :induction
+        attribute :funder
+        attribute :birthdate
         validates :value_statement, acceptance: true
         validates :p2p, acceptance: true
       end
@@ -42,6 +45,9 @@ module AccountFormPatch
       self.working_groups = profile['working_groups']
       self.pronouns = profile['pronouns']
       self.p2p = profile['p2p']
+      self.induction = profile['induction']
+      self.funder = profile['profile']
+      self.birthdate = profile['birthdate']
     end
   end
 

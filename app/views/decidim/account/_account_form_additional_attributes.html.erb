@@ -1,17 +1,40 @@
+<%= form.check_box :public_email, label: 'Show my email address on my profile page so other members can contact me' %>
+<%= form.editor :about_me, toolbar: :full, lines: 10 %>
+<br>
+<div class="field">
+  <%= form.label :pronouns, "Please select your applicable pronouns" %>
+  <%= form.collection_check_boxes :pronouns, {he: 'He', she: 'She', they: 'They'}, :first, :last, legend_title: "test label" %>
+</div>
+
+<br>
+
+<h4 class="section-heading">Please review the following terms:</h4>
 <% if form.object.accepted?(:value_statement) %>
   <%= form.hidden_field :value_statement %>
 <% else %>
-  <p>
-  Please take a few minutes to read the <a href="/fundaction_values.pdf">FundAction value statement</a>.<br />
-    <%= form.check_box :value_statement, label: 'I read and accept the FundAction value statement' %>
-  </p>
+  <%= form.check_box :value_statement, label: 'I subscribe to the mission, vision and values of FundAction: <a href="/fundaction_values.pdf" target="_blank">FundAction value statement</a>' %>
 <% end %>
 
-<%= form.check_box :public_email, label: 'Show my email address on my profile page so other members can contact me' %>
+<% if form.object.accepted?(:p2p) %>
+  <%= form.hidden_field :p2p %>
+<% else %>
+    <%= form.check_box :p2p, label: t(".p2p") %>
+<% end %>
 
-<%= form.text_field :gender %>
-<p class="help-text"><%= t(".gender_hint") %></p>
+<% if form.object.accepted?(:induction) %>
+  <%= form.hidden_field :induction %>
+<% else %>
+    <%= form.check_box :induction, label: t(".induction") %>
+<% end %>
 
+<% if form.object.accepted?(:funder) %>
+  <%= form.hidden_field :funder %>
+<% else %>
+    <%= form.check_box :funder, label: t(".funder") %>
+<% end %>
+
+<br>
+<h4 class="section-heading">Please fill and review your profile information</h4>
 
 <label for="user_country">
   <%= t 'country', scope: %i(activemodel attributes user) %>
@@ -20,26 +43,42 @@
 
 <%= form.select :languages, language_select_options(form.object.languages), {}, { multiple: true, data: { placeholder: t('.choose_languages') } } %>
 
-<%= form.select :areas_of_interest, area_of_interest_select_options(form.object.areas_of_interest), {}, { multiple: true, data: { placeholder: t('.choose_areas_of_interest') } } %>
-<%= form.text_field :other_area_of_interest, placeholder: t('.other_area_of_interest') %>
-
-<%= form.select :working_groups, working_groups_select_options(form.object.working_groups), {label: t('.working_groups_interest') + " <a href='#'> What are working groups? </a>"}, { multiple: true, data: { placeholder: "working_groups" } } %>
-
-<div class="field">
-  <%= form.label :pronouns, "Please select your applicable pronouns" %>
-  <%= form.collection_check_boxes :pronouns, {he: 'He', she: 'She', they: 'They'}, :first, :last, legend_title: "test label" %>
+<div class="field date">
+  <%= form.date_field :birthdate, start_year: 1900, end_year: 8.years.ago.year, default: 35.years.ago, prompt: { day: "Day", month: "Month", year: "Year" }, label: t('.birthdate') %>
 </div>
-
-<%= form.editor :about_me, toolbar: :full, lines: 10 %>
-
 
 <%= form.text_area :cultural_background, rows: 5 %>
 <p class="help-text"><%= t(".cultural_background_hint") %></p>
 
+<%= form.select :areas_of_interest, area_of_interest_select_options(form.object.areas_of_interest), {}, { multiple: true, data: { placeholder: t('.choose_areas_of_interest') } } %>
+<%= form.text_field :other_area_of_interest, placeholder: t('.other_area_of_interest'), label: t('.other_area_of_interest_label') %>
+
+<label for="working_groups">
+
+<%= form.select :working_groups, working_groups_select_options(form.object.working_groups), {label: t('.working_groups_interest')}, { multiple: true, data: { placeholder: "working_groups" } } %>
+<p>About working groups:</p>
+<ul>
+  <li>
+    Community Building - The place where we do our best to engage the community and to become more active. This would mean that we need from you to come up with ideas, join our every three weeks meetings and contribute to creating a more lively community.
+  </li>
+  <li>
+    Grantmaking/processes - How to improve the process of distributing the funds, making everything more accessible to all the people in the community. We would need you to join our meetings and help us to be better, together.
+  </li>
+  <li>
+    Fundraising - Yes, exactly that, we need help to make sure that we grow the funds we have for grantmaking. If you have ideas about how to do it, where to look for and whom to talk to, you are in the right place.  Join our periodical meetings and help us grow.
+  </li>
+  <li>
+    Communications - What do you think about when you hear FundAction? What do other people think about? Who do we focus on, how do we want to be understood? Everything connected to our image, in the community and outside is discussed in this group. Where your help is always needed. It means that we meet from time to time and discuss how to communicate better. 
+  </li>
+  <li>None</li>
+</ul>
+</label>
 
 
-<% if form.object.accepted?(:p2p) %>
-  <%= form.hidden_field :p2p %>
-<% else %>
-    <%= form.check_box :p2p, label: t(".p2p") %>
-<% end %>
+
+
+
+
+
+
+
