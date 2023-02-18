@@ -2,7 +2,7 @@ en:
   activemodel:
     attributes:
       user:
-        country: Country
+        country: Where are you based?
         languages: Languages
         areas_of_interest: Areas of interest
         other_area_of_interest: ""
@@ -19,6 +19,12 @@ en:
         cultural_background_hint: Not necessarily equal to nationality. This will not be part of your public profile.
         gender_hint: Share a word or words that reflect your internal sense of your gender (e.g. woman, man, non-binary). This will not be part of your public profile.
         other_area_of_interest: Other (please specify)
+        other_area_of_interest_label: Anything you wish to share about your activism/interests
+        working_groups_interest: <b>Select on which working group you are interested in:</b> <em>By selecting this, I agree to be contacted about joining these working groups.
+        p2p: (For activist members only) I agree to join a peer-to-peer panel when I get invited, as part of FundAction's participatory processes <a href="https://docs.google.com/document/d/1j37bLHTwpU1rKKSxRLSRzPKosw0hpn-y/edit?usp=sharing&ouid=115650887714062410156&rtpof=true&sd=true">More information</a>
+        induction: (For new activist members only) – I agree to take part in an online induction session
+        funder: (For funder members only) - I am a funder of FundAction
+        birthdate: Birthdate (optional - This information will not be shared publicly)
 
     authorization_handlers:
       anybody_authorization_handler:

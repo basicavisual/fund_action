@@ -8,8 +8,7 @@
       <%= f.text_field :name %>
       <%= f.text_field :nickname %>
       <%= f.email_field :email %>
-      <%#= f.url_field :personal_url %>
-      <%#= f.text_area :about, rows: 5 %>
+
       <%= render partial: 'account_form_additional_attributes', locals: { form: f } %>
 
       <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
