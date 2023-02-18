@@ -80,8 +80,8 @@ config.log_formatter = ::Logger::Formatter.new
 
   memcached_servers = ENV.fetch('MEMCACHED_SERVERS'){ "127.0.0.1:11211" }.split
   concurrency       = ENV.fetch('NUM_THREADS'){ 5 }
-  config.cache_store = :mem_cache_store, *memcached_servers, { namespace: "#{instance_name}:#{revision}:default", pool_size: concurrency }
-
+  #config.cache_store = :mem_cache_store, *memcached_servers, { namespace: "#{instance_name}:#{revision}:default", pool_size: concurrency }
+  config.cache_store = :mem_cache_store, "127.0.0.1:11211", { pool_size: 5, pool_timeout: 5 }
   #config.cache_store = :memory_store, { size: 64.megabytes }
   # Use a real queuing backend for Active Job (and separate queues per environment)
   config.active_job.queue_adapter     = :delayed_job
