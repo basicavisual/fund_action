@@ -5,14 +5,17 @@ class AreaOfInterest
   # Do not change the keys of this hash, they are referenced by
   # user.profile.areas_of_interest.
   ALL = {
-    'human_rights' => 'Human rights & anti-discrimination (gender, race, minorities, disabilty etc.)',
-    'climate_justice' => 'Climate justice & environment',
     'alt_economies' => 'Alternative economies (commons, circular economy, transition town etc.)',
-    'alt_media' => 'Alternative media, arts & culture',
-    'digital_activism' => 'Digital activism',
     'democratic_innovation' => 'Democratic innovation & civic education',
-    'migration' => 'Migration',
+    'digital_activism' => 'Digital activism',
+    'public_space' => 'Public space, housing & right to the city',
+    'feminism' => 'Feminism and oppressed genders',
     'civil_rights' => 'Civil, political & social rights',
+    'alt_media' => 'Media, arts & culture',
+    'anti-dicrimination' => 'Anti-discrimination',
+    'migration' => 'Migration',
+    'climate_justice' => 'Climate justice, environment, right to food',
+    'public_health' => 'Public health, care and welfare'
   }.freeze
 
   def self.to_a

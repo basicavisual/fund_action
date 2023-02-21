@@ -12,7 +12,7 @@
 <% if form.object.accepted?(:value_statement) %>
   <%= form.hidden_field :value_statement %>
 <% else %>
-  <%= form.check_box :value_statement, label: 'I subscribe to the mission, vision and values of FundAction: <a href="/fundaction_values.pdf" target="_blank">FundAction value statement</a>' %>
+  <%= form.check_box :value_statement, label: 'I subscribe to the mission, vision and values of FundAction: <a href="/fundaction_mission_vision_values.pdf" target="_blank">FundAction value statement</a>' %>
 <% end %>
 
 <% if form.object.accepted?(:p2p) %>
@@ -47,22 +47,20 @@
   <%= form.date_field :birthdate, start_year: 1900, end_year: 8.years.ago.year, default: 35.years.ago, prompt: { day: "Day", month: "Month", year: "Year" }, label: t('.birthdate') %>
 </div>
 
-<%= form.text_area :cultural_background, rows: 5 %>
-<p class="help-text"><%= t(".cultural_background_hint") %></p>
+<%= form.text_area :cultural_background, rows: 5, label: "<b>Cultural background.</b> This is a space to share anything you wish about who you are, how you identify, where you’re from, your background. This helps us get to know each other, understand who is part of our community and who we are missing in our community. <em>#{t('.cultural_background_hint')}</em>" %>
+
 
 <%= form.select :areas_of_interest, area_of_interest_select_options(form.object.areas_of_interest), {}, { multiple: true, data: { placeholder: t('.choose_areas_of_interest') } } %>
-<%= form.text_field :other_area_of_interest, placeholder: t('.other_area_of_interest'), label: t('.other_area_of_interest_label') %>
 
-<label for="working_groups">
 
 <%= form.select :working_groups, working_groups_select_options(form.object.working_groups), {label: t('.working_groups_interest')}, { multiple: true, data: { placeholder: "working_groups" } } %>
 <p>About working groups:</p>
 <ul>
   <li>
-    Community Building - The place where we do our best to engage the community and to become more active. This would mean that we need from you to come up with ideas, join our every three weeks meetings and contribute to creating a more lively community.
+    Grantmaking/processes - How to improve the process of distributing the funds, making everything more accessible to all the people in the community. We would need you to join our meetings and help us to be better, together.
   </li>
   <li>
-    Grantmaking/processes - How to improve the process of distributing the funds, making everything more accessible to all the people in the community. We would need you to join our meetings and help us to be better, together.
+    Community Building - The place where we do our best to engage the community and to become more active. This would mean that we need from you to come up with ideas, join our every three weeks meetings and contribute to creating a more lively community.
   </li>
   <li>
     Fundraising - Yes, exactly that, we need help to make sure that we grow the funds we have for grantmaking. If you have ideas about how to do it, where to look for and whom to talk to, you are in the right place.  Join our periodical meetings and help us grow.
@@ -72,7 +70,6 @@
   </li>
   <li>None</li>
 </ul>
-</label>
 
 
 
