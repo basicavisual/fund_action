@@ -53,7 +53,7 @@
 <%= form.select :areas_of_interest, area_of_interest_select_options(form.object.areas_of_interest), {}, { multiple: true, data: { placeholder: t('.choose_areas_of_interest') } } %>
 
 
-<%= form.select :working_groups, working_groups_select_options(form.object.working_groups), {label: t('.working_groups_interest')}, { multiple: true, data: { placeholder: "working_groups" } } %>
+<%= form.select :working_groups, working_groups_select_options(form.object.working_groups), {label: t('.working_groups_interest')}, { multiple: true, data: { placeholder: "Select working groups" } } %>
 <p>About working groups:</p>
 <ul>
   <li>
