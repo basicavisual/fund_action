@@ -4,7 +4,7 @@
 <div class="field">
 
   <%= form.label :pronouns, "Please select your applicable pronouns" %>
-  <%= form.collection_check_boxes :pronouns, {he_hash: 'He', she_hash: 'She', they_hash: 'They'}, :first, :last do |box|  %>
+  <%= form.collection_check_boxes :pronouns, {he: 'He', she: 'She', they: 'They'}, :first, :last do |box|  %>
      <%= box.label(:"data-value" => box.value) { box.check_box(checked: form.object[:pronouns].include?(box.object.first.to_s)) + box.text } %>
   <% end %>
 
