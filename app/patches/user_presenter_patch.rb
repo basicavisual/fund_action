@@ -33,8 +33,9 @@ module UserPresenterPatch
 
   def working_groups
     if working = profile_attr('working_groups')
-      working_groups = working.map{ |name| WorkingGroup.for(name) }.compact
-      working
+      
+      working_groups = working.map{ |name| WorkingGroup.groups[name.to_sym] }.compact
+      return working_groups
     end
   end
 
@@ -60,6 +61,12 @@ module UserPresenterPatch
 
   def cultural_background
     profile_attr 'cultural_background'
+  end
+
+  def pronouns
+    pronouns = profile_attr 'pronouns'
+    clean_pronouns = pronouns.reject { | item | item == "" }
+    clean_pronouns
   end
 
 

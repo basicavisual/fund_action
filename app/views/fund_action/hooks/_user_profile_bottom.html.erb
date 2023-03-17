@@ -1,6 +1,6 @@
-<div class="card__content">
+<div class="card__content" style="margin-top: 0; padding-top: 0;">
   <% if country = user.country %>
-    <p><%= t '.country', country: country %></p>
+    <p><%= t(".country") + " " %><b><%= country%></b></p>
   <% end %>
 
   <% if languages = user.languages.presence %>
@@ -27,17 +27,27 @@
       <p>Email: <%= user.email %>
     <% end %>
     <p>
-    <strong>Gender:</strong>
-    <%= user.gender %>
+      <strong>Pronouns:</strong>
+      
+    <% unless user.pronouns == nil || user.pronouns == []  %>
+      <% user.pronouns.each_with_index do |pronoun, index| %>
+        <span><%= pronoun.capitalize %></span> <%= '/' unless user.pronouns.size-1 == index %>
+      <% end %>
     </p>
-    <p>
-      <strong>Can contribute</strong><br>
-      <%= user.can_contribute %>
+    <% else %>
+      No pronouns have been selected
+    <% end %>
+    <% if working_groups = user.working_groups %>
+    <p><b>Working groups: </b>
+      <%= working_groups.to_sentence %>
     </p>
+    <% end %>
+    <% unless cultural_background = user.cultural_background.empty? %>
     <p>
       <strong>Cultural background</strong><br>
       <%= user.cultural_background %>
     </p>
+    <% end %>
   <% end %>
 
 </div>

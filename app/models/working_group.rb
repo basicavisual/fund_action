@@ -17,4 +17,8 @@ class WorkingGroup
     ALL[name]
   end
 
+  def self.groups
+    ALL
+  end  
+
 end
