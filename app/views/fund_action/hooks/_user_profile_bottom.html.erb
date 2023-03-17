@@ -39,7 +39,7 @@
     <% end %>
     <% if working_groups = user.working_groups %>
     <p><b>Working groups: </b>
-      <%= working_groups.to_sentence %>
+      <%= working_groups.empty? ? "No working groups have been selected" :  working_groups.to_sentence %>
     </p>
     <% end %>
     <% unless cultural_background = user.cultural_background.empty? %>
