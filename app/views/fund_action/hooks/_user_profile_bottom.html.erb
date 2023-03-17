@@ -6,6 +6,17 @@
   <% if languages = user.languages.presence %>
     <p><%= t '.i_speak', languages: languages.to_sentence %></p>
   <% end %>
+    <p>
+      <strong>Pronouns:</strong>
+      
+    <% unless user.pronouns == nil || user.pronouns == []  %>
+      <% user.pronouns.each_with_index do |pronoun, index| %>
+        <span><%= pronoun.capitalize %></span> <%= '/' unless user.pronouns.size-1 == index %>
+      <% end %>
+    <% else %>
+      No pronouns have been selected
+    <% end %>
+    </p>
 
   <% if areas_of_interest = user.areas_of_interest.presence %>
     <p><%= t '.areas_of_interest', areas: areas_of_interest.to_sentence %></p>
@@ -25,17 +36,6 @@
     </h1>
     <% unless user.public_email? %>
       <p>Email: <%= user.email %>
-    <% end %>
-    <p>
-      <strong>Pronouns:</strong>
-      
-    <% unless user.pronouns == nil || user.pronouns == []  %>
-      <% user.pronouns.each_with_index do |pronoun, index| %>
-        <span><%= pronoun.capitalize %></span> <%= '/' unless user.pronouns.size-1 == index %>
-      <% end %>
-    </p>
-    <% else %>
-      No pronouns have been selected
     <% end %>
     <% if working_groups = user.working_groups %>
     <p><b>Working groups: </b>
