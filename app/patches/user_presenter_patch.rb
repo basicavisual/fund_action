@@ -65,8 +65,8 @@ module UserPresenterPatch
 
   def pronouns
     pronouns = profile_attr 'pronouns'
-    clean_pronouns = pronouns.reject { | item | item == "" }
-    clean_pronouns
+    pronouns = pronouns.reject { | item | item == "" } unless pronouns == nil
+    pronouns
   end
 
 
