@@ -42,7 +42,7 @@
       <%= working_groups.empty? ? "No working groups have been selected" :  working_groups.to_sentence %>
     </p>
     <% end %>
-    <% unless cultural_background = user.cultural_background.empty? %>
+    <% unless cultural_background = user.cultural_background.true? %>
     <p>
       <strong>Cultural background</strong><br>
       <%= user.cultural_background %>
