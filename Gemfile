@@ -8,7 +8,8 @@ gem "decidim-calendar", git: 'https://github.com/alabs/decidim-module-calendar'
 gem "decidim-consultations"
 
 #gem "decidim-members", path: '../decidim-members'
-gem 'decidim-members', git: 'https://github.com/electricthings/decidim-members'
+# gem 'decidim-members', git: 'https://github.com/electricthings/decidim-members'
+gem 'decidim-members', git: 'https://github.com/basicavisual/decidim-members'
 
 gem 'uglifier', "~> 4.1"
 gem "faker", "~> 2.14"
