@@ -14,7 +14,7 @@ CarrierWave.configure do |config|
              file.model.organization.host
            end
 
-    "https://#{host}"
+    "http://#{host}:3000"
   end
 end
 
