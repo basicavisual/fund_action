@@ -4,8 +4,8 @@ ruby RUBY_VERSION
 # gem "rails"
 #gem "decidim", path: '../decidim'
 gem "decidim", DECIDIM_VERSION
-gem "decidim-calendar", git: 'https://github.com/alabs/decidim-module-calendar'
-gem "bootsnap", "~> 1.3"
+# gem "decidim-calendar", git: 'https://github.com/alabs/decidim-module-calendar'
+
 gem "decidim-consultations", DECIDIM_VERSION
 
 #gem 'decidim-members', git: 'https://github.com/basicavisual/decidim-members'
@@ -43,7 +43,9 @@ group :development, :test do
   #gem "decidim-dev", DECIDIM_VERSION
 end
 
-gem "puma", ">= 5.0.0"
+#gem "puma", ">= 5.0.0"
+gem "puma", ">= 5.5.1"
+gem "bootsnap", "~> 1.4"
 
 gem "decidim-decidim_awesome"
 #  CVE-2021-32740
@@ -62,6 +64,7 @@ group :development do
   gem 'rbnacl-libsodium'
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
   gem 'ed25519', '>= 1.2', '< 2.0'
+  gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :production do
