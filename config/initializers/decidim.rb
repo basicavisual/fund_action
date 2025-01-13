@@ -32,12 +32,12 @@ Decidim.configure do |config|
 
   config.enable_html_header_snippets = false
 
-  config.to_prepare do
-    AccountFormPatch.apply
-    UpdateAccountPatch.apply
-    UserPatch.apply
-    UserPresenterPatch.apply
-  end
+  # config.after_initialize do
+  #   AccountFormPatch.apply
+  #   UpdateAccountPatch.apply
+  #   UserPatch.apply
+  #   UserPresenterPatch.apply
+  # end
 
 end
 
@@ -51,7 +51,7 @@ end
 
 Decidim::Verifications.register_workflow(:anybody_authorization_handler) do |workflow|
   workflow.form = "AnybodyAuthorizationHandler"
-  workflow.action_authorizer = "AnybodyAuthorizationHandler::ActionAuthorizer"
+  workflow.action_authorizer = "AnybodyAuthorizationHandler::AnybodyActionAuthorizer"
   workflow.options do |options|
     options.attribute :allowed_emails, type: :string, required: false
   end
