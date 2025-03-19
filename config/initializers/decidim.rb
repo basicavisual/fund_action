@@ -5,8 +5,6 @@ Decidim.configure do |config|
   config.application_name = "FundAction's Assembly"
   config.mailer_sender = %{FundAction's Assembly <assembly@fundaction.eu>}
 
-  config.authorization_handlers = [AnybodyAuthorizationHandler]
-
   # Uncomment this lines to set your preferred locales
   # config.available_locales = [:en, :ca, :es]
 
@@ -34,6 +32,13 @@ Decidim.configure do |config|
 
   config.enable_html_header_snippets = false
 
+  # config.after_initialize do
+  #   AccountFormPatch.apply
+  #   UpdateAccountPatch.apply
+  #   UserPatch.apply
+  #   UserPresenterPatch.apply
+  # end
+
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
@@ -46,7 +51,7 @@ end
 
 Decidim::Verifications.register_workflow(:anybody_authorization_handler) do |workflow|
   workflow.form = "AnybodyAuthorizationHandler"
-  workflow.action_authorizer = "AnybodyAuthorizationHandler::ActionAuthorizer"
+  workflow.action_authorizer = "AnybodyAuthorizationHandler::AnybodyActionAuthorizer"
   workflow.options do |options|
     options.attribute :allowed_emails, type: :string, required: false
   end
@@ -64,20 +69,5 @@ Decidim.view_hooks.register(:user_profile_bottom,
   )
 end
 
-# create authorization record after confirmation
-module AutoAuthorizer
-  def after_confirmation
-    unless Decidim::Authorization.where(decidim_user_id: u.id).any?
-      Decidim::Authorization.create(
-        name: "anybody_authorization_handler",
-        decidim_user_id: id,
-        granted_at: Time.now,
-        metadata: {}
-      )
-    end
-
-    super
-  end
-end
-Decidim::User.prepend AutoAuthorizer
-
+# Inform Decidim about the assets folder
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
