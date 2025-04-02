@@ -8,7 +8,7 @@ gem "decidim", DECIDIM_VERSION
 
 gem "decidim-consultations", DECIDIM_VERSION
 
-#gem 'decidim-members', git: 'https://github.com/basicavisual/decidim-members'
+gem 'decidim-members', git: 'https://github.com/basicavisual/decidim-members'
 
 gem 'uglifier', "~> 4.1"
 gem "faker", "~> 2.14"
