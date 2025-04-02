@@ -100,7 +100,7 @@ config.log_formatter = ::Logger::Formatter.new
   config.action_mailer.default_url_options ||= {}
   config.action_mailer.default_url_options[:protocol] = 'https'
   config.action_mailer.default_url_options[:host] = 'assembly.fundaction.eu'
-
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+Rails.application.default_url_options = Rails.application.config.action_mailer.default_url_options
