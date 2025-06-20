@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+  # TODO: Remove this feature once defined
+  # resources :user_invitations, controller: :invitations,
+  #   only: %i(index new create destroy ) do
 
-  resources :user_invitations, controller: :invitations,
-    only: %i(index new create destroy ) do
-
-    member do
-      patch :resend
-    end
-  end
+  #   member do
+  #     patch :resend
+  #   end
+  # end
 
   if Rails.env.development?
    mount LetterOpenerWeb::Engine, at: "/letter_opener"
