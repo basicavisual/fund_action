@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/basicavisual/decidim-members
-  revision: c31b53804f638fd8df0dfa23b67aa4fd899c882c
+  revision: 1b5e5846603a98ddc4936037197d1f5d28b7e471
   specs:
-    decidim-members (0.4.2)
+    decidim-members (0.4.3)
       decidim-core (~> 0.25.2)
       rails (~> 6.0.4)
       sanitize (~> 6.1.3)
@@ -840,7 +840,7 @@ GEM
     timeout (0.4.3)
     tomlrb (2.0.3)
     trailblazer-option (0.1.2)
-    truncato (0.7.13)
+    truncato (0.7.12)
       htmlentities (~> 4.3.1)
       nokogiri (>= 1.7.0, <= 2.0)
     tzinfo (1.2.11)
@@ -931,6 +931,7 @@ DEPENDENCIES
   rbnacl-libsodium
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
+  truncato (= 0.7.12)
   uglifier (~> 4.1)
   web-console
   wicked_pdf (~> 2.1)

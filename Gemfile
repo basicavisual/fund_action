@@ -27,7 +27,7 @@ gem 'language_list'
 # Remove this nokogiri forces version at any time but make sure that no __truncato_root__ text appears in the cards in general.
 # More exactly in comments in the homepage and in processes cards in the processes listing
 #gem 'nokogiri' #, "1.13.4"
-
+gem 'truncato', '0.7.12'
 # GHSA-p4x4-rw2p-8j8m
 #gem "sanitize", ">= 5.2.1"
 
