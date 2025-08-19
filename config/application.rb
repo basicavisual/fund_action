@@ -18,6 +18,7 @@ module FundAction
       UpdateAccountPatch.apply
       UserPatch.apply
       UserPresenterPatch.apply
+      NewsletterRecipientsPatch.apply
     end
 
     # Settings in config/environments/* take precedence over those specified here.
