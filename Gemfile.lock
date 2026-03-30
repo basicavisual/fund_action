@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/basicavisual/decidim-members
-  revision: 1b5e5846603a98ddc4936037197d1f5d28b7e471
+  revision: 57f7c1d8d80ae5557e2c6f49484d0915e1d6e6f2
   specs:
-    decidim-members (0.4.3)
+    decidim-members (0.4.4)
       decidim-core (~> 0.25.2)
       rails (~> 6.0.4)
       sanitize (~> 6.1.3)

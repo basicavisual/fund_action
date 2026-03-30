@@ -20,6 +20,10 @@
 
 # Ignore public uploads
 public/uploads
+public/decidim-packs
+storage/*
+.rbenv-vars
+.rspec
 
 config/smtp_settings.yml
 
