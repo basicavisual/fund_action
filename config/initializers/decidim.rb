@@ -30,15 +30,10 @@ Decidim.configure do |config|
   config.maximum_attachment_size = 10.megabytes
   config.maximum_avatar_size     = 10.megabytes
 
-  config.enable_html_header_snippets = false
+  config.enable_html_header_snippets = true
 
-  # config.after_initialize do
-  #   AccountFormPatch.apply
-  #   UpdateAccountPatch.apply
-  #   UserPatch.apply
-  #   UserPresenterPatch.apply
-  # end
-
+  config.unconfirmed_access_for = 2.days
+  config.track_newsletter_links = true
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
