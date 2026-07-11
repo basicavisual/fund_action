@@ -1,0 +1,6 @@
+<!-- insert_bottom "h2.card-title" -->
+<% if allowed_to? :invite, :user %>
+  <%= link_to t("decidim.admin_invited_users.admin.actions.invite_user"), 
+              decidim_admin_invited_users.new_invited_user_path, 
+              class: "button tiny button--title" %>
+<% end %>

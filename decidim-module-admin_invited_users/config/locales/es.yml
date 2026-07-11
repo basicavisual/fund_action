@@ -1,0 +1,24 @@
+es:
+  decidim:
+    admin_invited_users:
+      admin:
+        actions:
+          invite_user: "Invitar nuevo usuario"
+          resend_invitation: "Reenviar invitación"
+        invited_users:
+          new:
+            title: "Invitar nuevo participante"
+            send_invitation: "Enviar invitación"
+          create:
+            success: "Invitación enviada correctamente"
+            error: "Hubo un error al enviar la invitación"
+          resend_invitation:
+            success: "Invitación reenviada correctamente"
+            error: "Hubo un error al reenviar la invitación"
+        errors:
+          email_already_exists: "Ya existe un usuario con este email en esta organización"
+  activemodel:
+    attributes:
+      user:
+        name: "Nombre"
+        email: "Email"
