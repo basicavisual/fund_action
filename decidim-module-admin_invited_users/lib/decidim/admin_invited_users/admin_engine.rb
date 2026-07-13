@@ -29,7 +29,7 @@ module Decidim
 
       initializer "decidim_admin_invited_users.permissions" do
         Decidim.permissions_registry.register_permissions(
-          ::Decidim::AdminInvitedUsers::Admin::InvitedUsersController,
+          "Decidim::AdminInvitedUsers::Admin::InvitedUsersController",
           ::Decidim::AdminInvitedUsers::Admin::Permissions
         )
       end
