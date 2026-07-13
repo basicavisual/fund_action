@@ -30,24 +30,14 @@ Decidim.configure do |config|
   config.maximum_attachment_size = 10.megabytes
   config.maximum_avatar_size     = 10.megabytes
 
-  config.enable_html_header_snippets = false
+  config.enable_html_header_snippets = true
 
-  # config.after_initialize do
-  #   AccountFormPatch.apply
-  #   UpdateAccountPatch.apply
-  #   UserPatch.apply
-  #   UserPresenterPatch.apply
-  # end
-
+  config.unconfirmed_access_for = 2.days
+  config.track_newsletter_links = true
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
-
-# add the invitations menu item to the user profile
-# Decidim.menu :user_menu do |menu|
-#   menu.item t("invitations", scope: "layouts.decidim.user_profile"), main_app.user_invitations_path, position: 2, active: :inclusive
-# end
 
 Decidim::Verifications.register_workflow(:anybody_authorization_handler) do |workflow|
   workflow.form = "AnybodyAuthorizationHandler"

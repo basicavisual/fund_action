@@ -1,5 +1,3 @@
-# require 'syslog/logger'
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -16,10 +14,9 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
-  # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
-  # `config/secrets.yml.key`.
-  # config.read_encrypted_secrets = true
+  # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
+  # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
+  # config.require_master_key = true
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
@@ -52,17 +49,10 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :info
 
-  #config.logger = Syslog::Logger.new("rails_#{instance_name}", Syslog::LOG_LOCAL6)
-#  if ENV["RAILS_LOG_TO_STDOUT"].present?
-#    logger           = ActiveSupport::Logger.new(STDOUT)
-#    logger.formatter = config.log_formatter
-#    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-#  end
-config.log_formatter = ::Logger::Formatter.new
-  # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
-  config.action_mailer.logger = nil
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
 
 
   # Rails cache configuration
@@ -93,14 +83,34 @@ config.log_formatter = ::Logger::Formatter.new
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :log
 
-  # config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.smtp_settings = YAML.load(IO.read(Rails.root/"config/smtp_settings.yml")).symbolize_keys
+    # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
+  config.action_mailer.smtp_settings = {
+    :address        => Rails.application.secrets.smtp_address,
+    :port           => Rails.application.secrets.smtp_port,
+    :authentication => Rails.application.secrets.smtp_authentication,
+    :user_name      => Rails.application.secrets.smtp_username,
+    :password       => Rails.application.secrets.smtp_password,
+    :domain         => Rails.application.secrets.smtp_domain,
+    :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
+    :openssl_verify_mode => 'none'
+  }
 
-  config.action_mailer.default_url_options ||= {}
-  config.action_mailer.default_url_options[:protocol] = 'https'
-  config.action_mailer.default_url_options[:host] = 'assembly.fundaction.eu'
+  # Use a different logger for distributed setups.
+  # require 'syslog/logger'
+  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
+
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  end
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # config.action_mailer.default_url_options ||= {}
+  # config.action_mailer.default_url_options[:protocol] = 'https'
+  # config.action_mailer.default_url_options[:host] = 'assembly.fundaction.eu'
+
 end
-Rails.application.default_url_options = Rails.application.config.action_mailer.default_url_options

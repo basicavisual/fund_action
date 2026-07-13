@@ -1,0 +1,2 @@
+<!-- insert_bottom "td.table-list__actions" -->
+<%= resend_invitation_action(user) if defined?(resend_invitation_action) %>

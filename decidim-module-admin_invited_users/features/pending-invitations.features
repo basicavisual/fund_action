@@ -1,0 +1,19 @@
+Feature: REQ-2 pending user invitation
+
+  Background: 
+    Given a user with role administrator visits this path of the application admin/officializations
+    And there is a pending invitation for a participant
+
+  Scenario: Resend invitation icon present
+    Given a user has a pending invitation
+    Then a resend invitation icon appears as an option on the actions menu for that user
+  
+  Scenario: Resend invitation icon is clicked
+    Given the user has not accepted the invitation
+    And the admin clicks on the resend invitation icon
+    Then a new invitation email is re-sent to that user's email
+      ```ruby
+        # see Decidim::Admin::UsersController#resend_invitation as inspiration. Should be like
+        def resend_invitation
+          enforce_permission_to :invite, :user, user: user
+      ```

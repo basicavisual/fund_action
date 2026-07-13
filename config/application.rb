@@ -13,12 +13,13 @@ module FundAction
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    config.after_initialize do
+    config.to_prepare do
       AccountFormPatch.apply
       UpdateAccountPatch.apply
       UserPatch.apply
       UserPresenterPatch.apply
       NewsletterRecipientsPatch.apply
+      HomepageVisibilityPatch.apply
     end
 
     # Settings in config/environments/* take precedence over those specified here.
