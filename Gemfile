@@ -3,13 +3,13 @@ DECIDIM_VERSION = "0.26.9"
 ruby RUBY_VERSION
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
-
+gem "decidim-templates", DECIDIM_VERSION
 # concurrent-ruby 1.3.5 dropped its implicit `require "logger"`, which Rails 6.x
 # relied on -> "uninitialized constant ActiveSupport::LoggerThreadSafeLevel::Logger".
 # Pin to the last version that still requires logger. Remove on Rails >= 7.1.
 gem "concurrent-ruby", "1.3.4"
 
-gem 'decidim-members', path: '../decidim-members' # git: 'https://github.com/basicavisual/decidim-members'
+gem 'decidim-members', git: 'https://github.com/basicavisual/decidim-members'
 
 gem 'uglifier', "~> 4.1"
 gem "faker", "~> 2.14"

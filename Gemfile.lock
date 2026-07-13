@@ -1,7 +1,8 @@
-PATH
-  remote: ../decidim-members
+GIT
+  remote: https://github.com/basicavisual/decidim-members
+  revision: a2eb6541b708b17315bac8fc0054905252761eb7
   specs:
-    decidim-members (0.4.4)
+    decidim-members (0.4.5)
       decidim-core (>= 0.25.0, < 0.27.0)
       rails (~> 6.0.4)
       sanitize (~> 6.1.3)
@@ -883,6 +884,7 @@ DEPENDENCIES
   decidim-decidim_awesome
   decidim-dev (= 0.26.9)
   decidim-members!
+  decidim-templates (= 0.26.9)
   delayed_job_active_record
   ed25519 (>= 1.2, < 2.0)
   faker (~> 2.14)
