@@ -43,7 +43,7 @@ end
 gem "puma", ">= 5.5.1"
 gem "bootsnap", "~> 1.4"
 
-gem "decidim-decidim_awesome"
+gem "decidim-decidim_awesome", "~> 0.10.2"
 gem "decidim-admin_invited_users", path: "decidim-module-admin_invited_users"
 #  CVE-2021-32740
 gem "addressable", ">= 2.8.0"
